@@ -6,19 +6,21 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:34 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:42:36 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:44:01 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* mandelbrot:
-*   Checks whether a complex number is part of the Mandelbrot set or not.
-*   Takes as parameters the real and imaginary coordinates of a point,
-*   converted previously from a pixel's coordinates.
-*   Returns the number of iterations before the number escapes 
-*   the Mandelbrot set, which can then be used to determine coloring.
-*/
+/* mandelbrot :
+ *   Vérifie si un nombre complexe fait partie de l'ensemble de Mandelbrot
+ *   ou non. Prend en paramètres les coordonnées réelles et imaginaires
+ *   d'un point, préalablement converties à partir des coordonnées d'un pixel.
+ *   Retourne le nombre d'itérations avant que le nombre n'échappe 
+ *   à l'ensemble de Mandelbrot, ce qui peut ensuite être utilisé
+ *   pour déterminer la couleur.
+ */
+
 int	mandelbrot(double cr, double ci)
 {
 	int		n;
@@ -41,49 +43,51 @@ int	mandelbrot(double cr, double ci)
 	return (n);
 }
 /*
-    How it works:
+    Comment ça fonctionne :
 
-    The Mandelbrot formula iterates over complex numbers:
-    At every iteration, Z is squared.
+    La formule de Mandelbrot itere sur des nombres complexes :
+    À chaque itération, Z est mis au carré.
         Z = Z * Z + c
-    If the result tends toward infinity, that means it is not part of
-    the set. If the result stays small over several iterations, the number
-    is part of the set.
+    
+    Si le resultat tend vers l'infini, cela signifie qu'il ne fait pas partie
+    de l'ensemble. Si le resultat reste petit apres plusieurs iterations,
+    le nombre fait partie de l'ensemble.
 
-    Examples with regular numbers:
-        ex.: c = 1
+    Exemples avec des nombres reguliers :
+        ex. : c = 1
             Z =  0
             Z =  0 *  0 + 1 = 1
             Z =  1 *  1 + 1 = 2
             Z =  2 *  2 + 1 = 5
             Z =  5 *  5 + 1 = 26
             Z = 26 * 26 + 1 = 677
-            ... Grows to infinity.
-            So 1 is NOT part of the Mandelbrot set.
+            ... Croit vers l'infini.
+            Donc 1 ne fait PAS partie de l'ensemble de Mandelbrot.
     
-        ex.2: c = -1
+        ex.2 : c = -1
             Z =    0
             Z =    0 *    0 + (-1) = -1
             Z = (-1) * (-1) + (-1) =  0
             Z =    0 *    0 + (-1) = -1
-            ... Result oscillates between -1 and 0
-            So -1 is part of the Mandelbrot set.
+            ... Le résultat oscille entre -1 et 0
+            Donc -1 fait partie de l'ensemble de Mandelbrot car il ne tend
+            pas vers l'infini.
 
-    Here we can't compute to infinity but it's safe to say that if the
-    absolute value of Z goes above 2, it will tend toward infinity and
-    the number won't be part of the Mandelbrot set.
+    Ici, nous ne pouvons pas calculer jusqu'a l'infini, mais il est sûr de
+    dire que si la valeur absolue de Z depasse 2, elle tendra vers l'infini
+    et le nombre ne fera pas partie de l'ensemble de Mandelbrot.
 
-    Since we are working with complex numbers, we need to calculate the
-    real number Zr and the imaginary number Zi and evaluate both together.
-    Multiplication of 2 complex numbers is complicated:
-    (a + bi)2   = (a + bi) * (a + bi)
+    Comme nous travaillons avec des nombres complexes, nous devons calculer la
+    partie réelle Zr et la partie imaginaire Zi et les evaluer ensemble.
+    La multiplication de deux nombres complexes se fait comme ca :
+    (a + bi)²   = (a + bi) * (a + bi)
                 = (a * a) + (a * bi) + (a * bi) + (bi * bi)
-                = (a * a) - (bi * bi) + 2 * (a * bi)
-    So the multiplication formula for the imaginary part is:
+                = (a * a) - (bi * bi) + 2 * (a * bi)  <--- voir rappel|
+           soit = a² - b² + 2 * a * b                 <---------------|
+    Donc la formule de multiplication pour la partie imaginaire est :
                     (a * a) - (bi * bi)
-    And the multiplication formula for the real part is:
+    Et la formule de multiplication pour la partie réelle est :
                     2 * a * bi
 
-    See:    http://warp.povusers.org/Mandelbrot/
-            https://www.mathsisfun.com/algebra/complex-number-multiply.html
+    Rappel : i² = -1 soit (bi * bi) = b²i² soit b² * -1 donc -b²
 */

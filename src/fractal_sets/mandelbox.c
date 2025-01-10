@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:27 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:42:28 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:53:15 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,6 @@ static double	ball_fold(double r, double m)
 	return (m);
 }
 
-/* mandelbox:
-*	Checks whether a complex number is part of the Mandelbox set or not.
-*	Takes as parameters the real and imaginary coordinates of a point,
-*	converted previously from a pixel's coordinates.
-*	Returns the number of iterations before the number escapes 
-*	the Mandelbox set, which can then be used to determine coloring.
-*/
 int	mandelbox(t_fractol *f, double cr, double ci)
 {
 	int		n;
@@ -49,7 +42,7 @@ int	mandelbox(t_fractol *f, double cr, double ci)
 	mag = 0;
 	n = 0;
 	while (n < MAX_ITERATIONS)
-	{		
+	{
 		vr = f->fx * box_fold(vr);
 		vi = f->fx * box_fold(vi);
 		mag = sqrt(vr * vr + vi * vi);
@@ -62,39 +55,32 @@ int	mandelbox(t_fractol *f, double cr, double ci)
 	return (n);
 }
 /*
-	How it works:
+	Comment ça fonctionne :
 
-	The Mandelbox set is usually represented in 3D, but can also
-	be rendered in 2D. It is a variation of the Mandelbrot fractal.
-
-	Like the Mandelbrot set, it is calculated by applying a formula
-	repeatedly to every point in space.
+	Comme Mandelbrot, il est calculé en appliquant une formule
+	répétitivement à chaque point de l'espace.
 	
-	The Mandelbrot equation is: z = z2 + c
+	L'équation de Mandelbrot est : z = z² + c
 	
-	The Mandelbox equation is: v = s * ballFold(r, f*boxFold(v)) + c
-	where:
-		- v is a starting complex number (the translated pixel coordinates)
-		- c is an unchanding complex number (pixel coordinates)
-		- s is a scale multiplier
-		- r is a minimum radius
-		- f is a fixed radius
+	L'équation de Mandelbox est : v = s * ballFold(r, f*boxFold(v)) + c
+	où :
+		- v est un nombre complexe de départ (les coordonnées de pixel traduites)
+		- c est un nombre complexe inchangé (les coordonnées du pixel)
+		- s est un multiplicateur d'échelle
+		- r est un rayon minimum
+		- f est un rayon fixe
 
-	boxFold(v) means for each axis a:
+	boxFold(v) signifie pour chaque axe a on a:
 
-		if v[a] > 1 
+		si v[a] > 1 
     		v[a] =  2 - v[a]
-		else if v[a] < -1
+		sinon si v[a] < -1
     		v[a] = -2 - v[a]
 
-	ballFold(r, v) means for v's magnitude m:
+	ballFold(r, v) signifie que pour la magnitude m de v on a:
 
-		if m < r
-    		m = m/r^2
-		else if m < 1 
-			m = 1/m^2	
-
-	The standard Mandelbox uses this formula with s=2, r=0.5 and f=1.
-	See:	https://sites.google.com/site/mandelbox/what-is-a-mandelbox
-			https://en.wikipedia.org/wiki/Mandelbox
+		si m < r
+    		m = m/r²
+		sinon si m < 1 
+			m = 1/m²	
 */

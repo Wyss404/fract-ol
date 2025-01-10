@@ -6,25 +6,9 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:41:43 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:41:45 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:51:54 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-	Notice: These color scheme functions were created purely by accident,
-	and may not always work well with every color provided. They rely on
-	pushing past FFFFFF or 000000 which can have some unpredictable results.
-	
-	When they do work, they	create very interesting and beautiful
-	colorings, though, which is why they have not been cut from this
-	project.
-
-	Typically, they work well with middling colors, especially ones like:
-		9966FF	33FF33	FF6666	CCCC00	CC6600
-	
-	But they don't work too well with edge colors like:
-		000000	FFFFFF	00FF00	FF0000	0000FF	FFFF00
-*/
 
 #include "fractol.h"
 

@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:33 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 16:40:28 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 02:01:05 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ void	get_complex_layout(t_fractol *f)
 	}
 }
 
-/* init_img:
-*	Initializes an MLX image and a color palette. The color palette will
-*	be used to store every shade of color for every iteration number,
-*	and the color of each pixel will be stored in the image, which will
-*	then be displayed in the program window.
-*/
 static void	init_img(t_fractol *f)
 {
 	int		pixel_bits;
@@ -81,10 +75,6 @@ static void	init_img(t_fractol *f)
 	f->buf = buf;
 }
 
-/* reinit_image:
-*	Cleanly reinitializes the MLX image if the color palette or 
-*	fractal type is modified at runtime.
-*/
 void	reinit_img(t_fractol *f)
 {
 	if (f->mlx && f->img)
@@ -96,10 +86,6 @@ void	reinit_img(t_fractol *f)
 	init_img(f);
 }
 
-/* init:
-*	Creates a new MLX instance, a new window and populates
-*	the fractol data structure with default values.
-*/
 void	init(t_fractol *f)
 {
 	f->mlx = mlx_init();

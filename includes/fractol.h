@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:23:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2025/01/07 15:18:48 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/08 21:14:50 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <math.h>
 
 /*  Dimensions	*/
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 900
+# define HEIGHT 900
 # define MAX_ITERATIONS 60
 
 /*  Fractal sets	*/

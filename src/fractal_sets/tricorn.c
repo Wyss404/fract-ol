@@ -6,19 +6,21 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:42 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:42:43 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:52:44 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* tricorn:
-*	Checks whether a complex number is part of the Tricorn set or not.
-*	Takes as parameters the real and imaginary coordinates of a point,
-*	converted previously from a pixel's coordinates.
-*	Returns the number of iterations before the number escapes 
-*	the Tricorn set, which can then be used to determine coloring.
-*/
+/* tricorn :
+ *	Vérifie si un nombre complexe fait partie de l'ensemble Tricorn ou non.
+ *	Prend en paramètres les coordonnées réelles et imaginaires d'un point,
+ *	préalablement converties à partir des coordonnées d'un pixel.
+ *	Retourne le nombre d'itérations avant que le nombre n'échappe 
+ *	à l'ensemble Tricorn, ce qui peut ensuite être utilisé pour déterminer
+ *	la couleur.
+ */
+
 int	tricorn(double cr, double ci)
 {
 	int		n;
@@ -41,12 +43,14 @@ int	tricorn(double cr, double ci)
 	return (n);
 }
 /*
-	How it works:
+	Comment ça fonctionne :
 
-	The Tricorn fractal (sometimes called the Mandelbar) is a distortion
-	of the Mandelbrot fractal.
+	Le fractal Tricorn (parfois appelé Mandelbar) est une déformation
+	du fractal de Mandelbrot.
 
-	It uses the same basic formula, except the multiplication differs.
-	In Mandelbrot,	zi =  2 * zr * zi + ci
-	In Tricorn,		zi = -2 * zr * zi + ci
+	Il utilise la même formule de base, sauf que la multiplication diffère.
+	Dans Mandelbrot,	zi =  2 * zr * zi + ci
+	Dans Tricorn,		zi = -2 * zr * zi + ci
+							 ^
+							 |
 */

@@ -6,16 +6,12 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:24 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 15:02:25 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 00:03:09 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* skip_space_sign_0x:
-*	Skips spaces, '+' sign character and '0x' or '0X'
-*	to parse hexadecimal color code strings.
-*/
 static int	skip_space_sign_0x(char *color)
 {
 	int	i;
@@ -31,13 +27,6 @@ static int	skip_space_sign_0x(char *color)
 	return (i);
 }
 
-/* ft_atox_color:
-*	Translates a hexadecimal color code string into an integer.
-*	Valid: "RRGGBB", "0XRRGGBB", "rrggbb", "   +rrggbb"
-*	Invalid: "-RRGGBB" "RRGGBB-", "RR GG BB"
-*	If the string is not a valid hex color code, an error is displayed.
-*	Returns the converted int. -1 if an error occured.
-*/
 static int	ft_atox_color(t_fractol *f, char *color)
 {
 	int	i;
@@ -64,10 +53,6 @@ static int	ft_atox_color(t_fractol *f, char *color)
 	return (-1);
 }
 
-/* get_color:
-*	Gets the color option provided as argument at program launch.
-*	If no color was specified, sets a default value to be used.
-*/
 void	get_color(t_fractol *f, int ac, char **av)
 {
 	if (f->set == JULIA && ac == 5)
@@ -78,11 +63,6 @@ void	get_color(t_fractol *f, int ac, char **av)
 		f->color = 0x9966FF;
 }
 
-/* skip_space_sign:
-*	Skips spaces, '+' and '-' sign characters and sets the
-*	is_neg variable if a '-' sign is detected.
-*	Used to parse strings representing float values for Julia.
-*/
 static int	skip_space_sign(char *str, int *is_neg)
 {
 	int	i;
@@ -99,12 +79,6 @@ static int	skip_space_sign(char *str, int *is_neg)
 	return (i);
 }
 
-/* ft_atof:
-*	Converts a string into a float (decimal number). Used to parse
-*	Julia starting values given as program arguments.
-*	Returns the converted double, or -42 in case of error (Julia accepts
-*	values between 2.0 and -2.0 only)
-*/
 double	ft_atof(char *str)
 {
 	int		i;

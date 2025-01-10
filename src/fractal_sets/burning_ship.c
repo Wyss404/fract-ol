@@ -6,19 +6,20 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:10 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:42:12 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 00:23:11 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* burning_ship:
-*	Checks whether a complex number is part of the Burning Ship set or not.
-*	Takes as parameters the real and imaginary coordinates of a point,
-*	converted previously from a pixel's coordinates.
-*	Returns the number of iterations before the number escapes 
-*	the Burning Ship set, which can then be used to determine coloring.
-*/
+/* burning_ship :
+ *	Vérifie si un nombre complexe fait partie de l'ensemble Burning Ship ou
+ *	non. Prend en paramètres les coordonnées réelles et imaginaires d'un point,
+ *	préalablement converties à partir des coordonnées d'un pixel.
+ *	Retourne le nombre d'itérations avant que le nombre n'échappe 
+ *	à l'ensemble Burning Ship, ce qui peut ensuite être utilisé
+ *	pour déterminer la couleur.
+ */
 int	burning_ship(double cr, double ci)
 {
 	int		n;
@@ -43,9 +44,9 @@ int	burning_ship(double cr, double ci)
 	return (n);
 }
 /*
-	How it works:
+	Comment ça fonctionne :
 
-	The Burning Ship fractal is a distortion of the Mandelbrot
-	fractal. It uses the same equation to calculate the set, but
-	uses absolute values of zr and zi at each iteration.
+	Le fractal Burning Ship est une déformation du fractal
+	de Mandelbrot. Il utilise la même équation pour calculer l'ensemble,
+	mais utilise les valeurs absolues de zr et zi à chaque itération.
 */

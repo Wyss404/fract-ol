@@ -6,18 +6,13 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:41:59 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:42:00 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:52:05 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* fill_color:
-*	Sets a color for particular stripes intervals.
-*	If stripes = 2, the coloring will skip a palette iteration,
-*	if stripes = 3, the coloring will skip 2 palette iterations, and so on.
-*/
-static void	fill_color_stripe(t_fractol *f, int color, int stripe)
+static void	fill_color_stripe(t_fractol *f, int color, int skip)
 {
 	int	i;
 
@@ -25,19 +20,19 @@ static void	fill_color_stripe(t_fractol *f, int color, int stripe)
 	while (i < MAX_ITERATIONS)
 	{
 		f->palette[i] = color;
-		i += stripe;
+		i += skip;
 	}
 }
 
-/* get_percent_color:
-*	Calculates a color that is a certain percentage away
-*	from the provided color. Each color channel must be calculated
-*	separately. Intended to find somewhat complimentary colors.
-*	(For true complimentary colors picked from the color wheel,
-*	this function would need to be radically modified to use
-*	HSL colors rather than RGB...)
-*	Note: rgb[3] : rgb[0] = red, rgb[1] = green, rgb[2] = blue
-*/
+/* get_percent_color :
+ *	Calcule une couleur qui est à un certain pourcentage
+ *	éloignée de la couleur fournie. Chaque canal de couleur doit être
+ *	calculé séparément. Conçu pour trouver des couleurs quelque peu
+ *	complémentaires. (Pour des couleurs véritablement complémentaires choisies
+ *	sur le cercle chromatique,cette fonction devrait être radicalement
+ *	modifiée pour utiliser les couleurs HSL plutôt que RGB...)
+ *	Remarque : rgb[3] : rgb[0] = rouge, rgb[1] = vert, rgb[2] = bleu
+ */
 int	get_percent_color(int color, double percent)
 {
 	int		rgb[3];
@@ -54,11 +49,11 @@ int	get_percent_color(int color, double percent)
 	return (0xFF << 24 | trgb[0] << 16 | trgb[1] << 8 | trgb[2]);
 }
 
-/* set_color_zebra:
-*	Sets a zebra-striped color scheme. Colors alternate between
-*	the given color and a complimentary color 50% away from the
-*	first.
-*/
+/* set_color_zebra :
+ *	Applique un schéma de couleurs en rayures zébrées. Les couleurs
+ *	alternent entre la couleur donnée et une couleur complémentaire
+ *	située à 50 % de la première.
+ */
 void	set_color_zebra(t_fractol *f, int color)
 {
 	int	color2;
@@ -69,10 +64,10 @@ void	set_color_zebra(t_fractol *f, int color)
 	f->palette[MAX_ITERATIONS - 1] = 0;
 }
 
-/* set_color_triad:
-*	Sets a striped color scheme. Colors alternate between
-*	three colors: the given color, a color 33% away from the first
-*	and a color 66% away from the first.
+/* set_color_triad :
+*	Applique un schéma de couleurs en bandes. Les couleurs alternent entre
+*	trois couleurs : la couleur donnée, une couleur située à 33 % de la première
+*	et une couleur située à 66 % de la première.
 */
 void	set_color_triad(t_fractol *f, int color)
 {
@@ -86,12 +81,12 @@ void	set_color_triad(t_fractol *f, int color)
 	f->palette[MAX_ITERATIONS - 1] = 0;
 }
 
-/* set_color_tetra:
-*	Sets a striped color scheme. Colors alternate between
-*	four colors: the given color, a color 25% away from it,
-*	a color 50% away from the first, and a color 75% away from
-*	the first.
-*/
+/* set_color_tetra :
+ *	Applique un schéma de couleurs en bandes. Les couleurs alternent entre
+ *	quatre couleurs : la couleur donnée, une couleur située à 25 % de celle-ci,
+ *	une couleur située à 50 % de la première, et une couleur située à 75 % de
+ *	la première.
+ */
 void	set_color_tetra(t_fractol *f, int color)
 {
 	int	tetra[3];

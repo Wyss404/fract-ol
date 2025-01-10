@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:41:51 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 17:41:53 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 01:55:10 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,15 @@ void	set_color_mono(t_fractol *f, int color)
 	f->palette[MAX_ITERATIONS -1] = 0;
 }
 
-/* set_color_multiple:
-*	Sets a multicolor color scheme. Colors range from the
-*	first color provided in the array to the last. The colors are
-*	interpolated for a smooth transition between each. It is possible
-*	to provide more than 4 colors by casting a larger array and specifying
-*	how many colors are included.
-*/
+/* set_color_multiple :
+ *	Applique un schéma de couleurs multicolore. Les couleurs vont de la
+ *	première couleur fournie dans le tableau à la dernière. Les couleurs
+ *	sont interpolées pour une transition fluide entre chacune. Il est possible
+ *	de fournir plus de 4 couleurs en utilisant un tableau plus grand et en 
+ *	spécifiant le nombre de couleurs incluses car en C, la taille exacte
+ *	d'un tableau passé comme argument n'est pas vérifiée.
+ */
+
 void	set_color_multiple(t_fractol *f, int colors[4], int n)
 {
 	int		i;

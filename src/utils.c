@@ -6,18 +6,12 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:17 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 15:02:20 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/08 21:29:30 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* clean_exit:
-*	Destroys the window, the MLX image and the MLX instance,
-*	and frees the color palette, before ending the MLX loop
-*	and destroying the display. Exits the process with the provided
-*	exit code.
-*/
 void	clean_exit(int exit_code, t_fractol *f)
 {
 	if (!f)
@@ -37,10 +31,6 @@ void	clean_exit(int exit_code, t_fractol *f)
 	exit(exit_code);
 }
 
-/* msg:
-*	Displays an error message to the standard error.
-*	Returns the provided error number.
-*/
 int	msg(char *str1, char *str2, int errno)
 {
 	ft_putstr_fd("Fractol: ", 2);
@@ -49,12 +39,6 @@ int	msg(char *str1, char *str2, int errno)
 	return (errno);
 }
 
-/* end_fractol:
-*	Exits cleanly from the program.
-*	This function is registered to an MLX hook: whenever the
-*	user hits the right button, this function will be called
-*	automatically.
-*/
 int	end_fractol(t_fractol *mlx)
 {
 	clean_exit(0, mlx);

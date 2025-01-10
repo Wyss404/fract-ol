@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:57 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/07 15:02:58 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/10 00:56:52 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ static void	zoom(t_fractol *f, double zoom)
 	f->max_i = f->min_i + zoom * center_i;
 }
 
-/* move:
-*	Moves the view of the fractal by adjusting the complex
-*	number edge values a certain distance in a certain direction.
-*/
 static void	move(t_fractol *f, double distance, char direction)
 {
 	double	center_r;
