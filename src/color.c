@@ -6,13 +6,13 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:03:02 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/10 00:08:32 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 21:03:04 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	color_shift_special(t_fractol *f)
+static void	color_shift_3(t_fractol *f)
 {
 	int	alt_color;
 
@@ -31,7 +31,7 @@ static void	color_shift_special(t_fractol *f)
 			0x00FF00, 0x0000FF, 0x4B0082, 0x9400D3, 0xFFFFFF}, 8);
 }
 
-static void	color_shift_striped(t_fractol *f)
+static void	color_shift_2(t_fractol *f)
 {
 	if (f->color_pattern == 2)
 		set_color_zebra(f, f->color);
@@ -40,7 +40,7 @@ static void	color_shift_striped(t_fractol *f)
 	else if (f->color_pattern == 4)
 		set_color_tetra(f, f->color);
 	else
-		color_shift_special(f);
+		color_shift_3(f);
 }
 
 void	color_shift(t_fractol *f)
@@ -59,5 +59,5 @@ void	color_shift(t_fractol *f)
 		set_color_multiple(f, (int [4]){0x000000, alt_color,
 			get_percent_color(f->color, 50), 0xFFFFFF}, 4);
 	else
-		color_shift_striped(f);
+		color_shift_2(f);
 }

@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:46 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/10 02:06:20 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 20:50:00 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static void	get_set(t_fractol *f, char **av)
 		f->set = BURNING_SHIP;
 	else if (type_cmp(av[1], "tricorn", 't', '4'))
 		f->set = TRICORN;
-	else if (type_cmp(av[1], "mandelbox", 'x', '5'))
-		f->set = MANDELBOX;
 	else
 		help_msg(f);
 }

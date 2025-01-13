@@ -6,24 +6,11 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:41:03 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/10 02:05:11 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 21:32:12 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-/* set_pixel_color :
- *	Ajoute une couleur à un pixel de la carte d'image MLX.
- *	L'image MLX est composée de 32 bits par pixel.
- *	Les entiers de couleur sont stockés de droite à gauche et sont sous
- *	la forme 0xAARRGGBB. 8 bits encodent chaque composant de couleur,
- *	Alpha (transparence), Rouge, Vert et Bleu.
- *	Décalage de bits :
- *		- BB >> 0   (0x000000BB)
- *		- GG >> 8   (0x0000GG00)
- *		- RR >> 16  (0x00RR0000)
- *		- AA >> 24  (0xAA000000)
- */
 
 static void	set_pixel_color(t_fractol *f, int x, int y, int color)
 {
@@ -45,8 +32,6 @@ static int	calculate_fractal(t_fractol *f, double pr, double pi)
 		nb_iter = burning_ship(pr, pi);
 	else if (f->set == TRICORN)
 		nb_iter = tricorn(pr, pi);
-	else if (f->set == MANDELBOX)
-		nb_iter = mandelbox(f, pr, pi);
 	return (nb_iter);
 }
 
@@ -68,7 +53,6 @@ void	render(t_fractol *f)
 	double	pi;
 	int		nb_iter;
 
-	mlx_clear_window(f->mlx, f->win);
 	y = -1;
 	while (++y < HEIGHT)
 	{

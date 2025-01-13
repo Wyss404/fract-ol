@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:33 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/10 02:01:05 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 21:03:44 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,7 @@ void	clean_init(t_fractol *f)
 
 void	get_complex_layout(t_fractol *f)
 {
-	if (f->set == MANDELBOX)
-	{
-		f->min_r = -4.0;
-		f->max_r = 4.0;
-		f->min_i = -4.0;
-		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
-	}
-	else if (f->set == JULIA)
+	if (f->set == JULIA)
 	{
 		f->min_r = -2.0;
 		f->max_r = 2.0;

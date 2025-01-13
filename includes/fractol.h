@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:23:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2025/01/08 21:14:50 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 20:53:11 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@
 /*  Dimensions	*/
 # define WIDTH 900
 # define HEIGHT 900
-# define MAX_ITERATIONS 60
+# define MAX_ITERATIONS 100
 
 /*  Fractal sets	*/
 # define MANDELBROT 1
 # define JULIA 2
 # define BURNING_SHIP 3
 # define TRICORN 4
-# define MANDELBOX 5
 
 typedef struct s_fractol
 {
@@ -57,7 +56,6 @@ int		mandelbrot(double cr, double ci);
 int		julia(t_fractol *f, double zr, double zi);
 int		burning_ship(double cr, double ci);
 int		tricorn(double cr, double ci);
-int		mandelbox(t_fractol *f, double cr, double ci);
 
 /*  Draw Fractal	*/
 void	render(t_fractol *f);

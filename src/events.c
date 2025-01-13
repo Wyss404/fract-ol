@@ -6,71 +6,54 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:57 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/10 00:56:52 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/13 21:01:55 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* zoom:
-*	Zooms the view of the fractal in or out by adjusting
-*	the complex number edge values by a zoom multiplier.
-*	The fractal can then be generated again at a different resolution,
-*	giving the appearance of zooming in or out.
-*	If the zoom multiplier is small, like 0.5, the view will
-*	zoom in, if it is big, like 2.0, it will zoom out.
-*/
 static void	zoom(t_fractol *f, double zoom)
 {
-	double	center_r;
-	double	center_i;
+	double	length_r;
+	double	length_i;
 
-	center_r = f->min_r - f->max_r;
-	center_i = f->max_i - f->min_i;
-	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;
-	f->min_r = f->max_r + zoom * center_r;
-	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
-	f->max_i = f->min_i + zoom * center_i;
+	length_r = f->min_r - f->max_r;
+	length_i = f->max_i - f->min_i;
+	f->max_r = f->max_r + (length_r - zoom * length_r) / 2;
+	f->min_r = f->max_r + zoom * length_r;
+	f->min_i = f->min_i + (length_i - zoom * length_i) / 2;
+	f->max_i = f->min_i + zoom * length_i;
 }
 
 static void	move(t_fractol *f, double distance, char direction)
 {
-	double	center_r;
-	double	center_i;
+	double	length_r;
+	double	length_i;
 
-	center_r = f->max_r - f->min_r;
-	center_i = f->max_i - f->min_i;
+	length_r = f->max_r - f->min_r;
+	length_i = f->max_i - f->min_i;
 	if (direction == 'R')
 	{
-		f->min_r += center_r * distance;
-		f->max_r += center_r * distance;
+		f->min_r += length_r * distance;
+		f->max_r += length_r * distance;
 	}
 	else if (direction == 'L')
 	{
-		f->min_r -= center_r * distance;
-		f->max_r -= center_r * distance;
+		f->min_r -= length_r * distance;
+		f->max_r -= length_r * distance;
 	}
 	else if (direction == 'D')
 	{
-		f->min_i -= center_i * distance;
-		f->max_i -= center_i * distance;
+		f->min_i -= length_i * distance;
+		f->max_i -= length_i * distance;
 	}
 	else if (direction == 'U')
 	{
-		f->min_i += center_i * distance;
-		f->max_i += center_i * distance;
+		f->min_i += length_i * distance;
+		f->max_i += length_i * distance;
 	}
 }
 
-/* key_event_extend:
-*	Handles events from the keyboard keys:
-*		- 1, 2, 3, 4, 5: switch fractals
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
-*/
 static int	key_event_extend(int keycode, t_fractol *mlx)
 {
 	if (keycode == KEY_ONE && mlx->set != MANDELBROT)
@@ -81,8 +64,6 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 		mlx->set = BURNING_SHIP;
 	else if (keycode == KEY_FOUR && mlx->set != TRICORN)
 		mlx->set = TRICORN;
-	else if (keycode == KEY_FIVE && mlx->set != MANDELBOX)
-		mlx->set = MANDELBOX;
 	else
 		return (1);
 	get_complex_layout(mlx);
@@ -90,17 +71,6 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 	return (0);
 }
 
-/* key_event:
-*	Handles events from the keyboard keys:
-*		- + or - key: zoom
-*		- Arrow keys or WASD: move
-*		- Space: color shift
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the keyboard.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
-*/
 int	key_event(int keycode, t_fractol *mlx)
 {
 	if (keycode == KEY_ESC)
@@ -130,16 +100,6 @@ int	key_event(int keycode, t_fractol *mlx)
 	return (0);
 }
 
-/* mouse_event:
-*	Handles events from the mouse:
-*		- Mouse wheel: zoom
-*		- Left click: Julia shift
-*	This function is registered to an MLX hook and will
-*	automatically be called when the user does anything inside the
-*	program window with the mouse.
-*	If a valid event is detected, settings are adjusted and the fractal
-*	gets redrawn.
-*/
 int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 {
 	if (keycode == MOUSE_WHEEL_UP)
