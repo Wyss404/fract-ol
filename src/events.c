@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:57 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/13 21:01:55 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 14:22:14 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(mlx, 2);
-	else if (keycode == MOUSE_BTN)
+	else if (keycode == MOUSE_LEFT)
 	{
 		if (mlx->set == JULIA)
 			julia_shift(x, y, mlx);

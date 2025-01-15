@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 14:01:07 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/20 14:19:00 by mcombeau         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:23:32 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@
 # define KEY_TWO 50
 # define KEY_THREE 51
 # define KEY_FOUR 52
-# define KEY_FIVE 53
 # define MOUSE_WHEEL_UP 4
 # define MOUSE_WHEEL_DOWN 5
 # define MOUSE_WHEEL_BTN 3
-# define MOUSE_BTN 1
-# define MOUSE_BTN_2 3
-# define KEY_K 107
+# define MOUSE_LEFT 1
+# define MOUSE_RIGHT 3
 
 #endif

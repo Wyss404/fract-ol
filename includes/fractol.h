@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:23:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2025/01/13 20:53:11 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 15:11:13 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <math.h>
 
 /*  Dimensions	*/
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 950
+# define HEIGHT 950
 # define MAX_ITERATIONS 100
 
 /*  Fractal sets	*/
@@ -63,8 +63,6 @@ int		julia_shift(int x, int y, t_fractol *f);
 
 /* Colors	*/
 void	color_shift(t_fractol *f);
-void	set_color_mono(t_fractol *f, int color);
-void	set_color_multiple(t_fractol *f, int colors[4], int n);
 void	set_color_zebra(t_fractol *f, int color);
 void	set_color_triad(t_fractol *f, int color);
 void	set_color_tetra(t_fractol *f, int color);

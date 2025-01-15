@@ -34,7 +34,7 @@ SRC			=	fractol.c \
 				fractal_sets/julia.c \
 				fractal_sets/burning_ship.c \
 				fractal_sets/tricorn.c \
-				color_schemes/color_interpolated.c \
+				color_schemes/color_mono.c \
 				color_schemes/color_special.c \
 				color_schemes/color_striped.c
 
