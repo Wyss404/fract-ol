@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:39 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 16:25:18 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 22:41:54 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ void	print_color_options(void)
 	ft_putendl_fd("|For Julia, you can only specify colors after", 1);
 	ft_putendl_fd("|the starting values.", 1);
 	ft_putstr_fd("\e[32m|Usage example:\t", 1);
-	ft_putendl_fd("./fractol J 0.285 0.01 CC6600\e[0m\n", 1);
-	ft_putendl_fd("+==================================================+\n", 1);
+	ft_putendl_fd("./fractol J 0.285 0.01 CC6600\e[0m", 1);
+	ft_putendl_fd("+==================================================+", 1);
 }
 
 void	print_controls(void)
 {
 	ft_putendl_fd("\n+==================  Controls  ====================+", 1);
-	ft_putendl_fd("|WASD or arrow keys\tmove view.", 1);
+	ft_putendl_fd("\e[32m|WASD or arrow keys\tmove view.", 1);
 	ft_putendl_fd("|+/- or scroll wheel\tzoom in and out.", 1);
 	ft_putendl_fd("|Spacebar\t\tchange color schemes.", 1);
 	ft_putendl_fd("|Left click\t\tshift Julia set [Julia only].", 1);
 	ft_putendl_fd("|1, 2, 3, 4\t\tswitch fractals.", 1);
-	ft_putendl_fd("|ESC or close window\tquit fract'ol.\n", 1);
+	ft_putendl_fd("|ESC or close window\tquit fract'ol.\e[0m", 1);
 	ft_putendl_fd("+==================================================+\n", 1);
 }
 

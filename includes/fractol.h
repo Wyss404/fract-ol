@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 16:23:44 by mcombeau          #+#    #+#             */
-/*   Updated: 2025/01/15 15:11:13 by hdruel           ###   ########.fr       */
+/*   Created: 2025/01/15 21:02:20 by hdruel            #+#    #+#             */
+/*   Updated: 2025/01/15 22:06:48 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <math.h>
 
 /*  Dimensions	*/
-# define WIDTH 950
-# define HEIGHT 950
-# define MAX_ITERATIONS 100
+# define WIDTH 960
+# define HEIGHT 540
+# define MAX_ITERATIONS 250
 
 /*  Fractal sets	*/
 # define MANDELBROT 1
@@ -63,12 +63,12 @@ int		julia_shift(int x, int y, t_fractol *f);
 
 /* Colors	*/
 void	color_shift(t_fractol *f);
-void	set_color_zebra(t_fractol *f, int color);
 void	set_color_triad(t_fractol *f, int color);
 void	set_color_tetra(t_fractol *f, int color);
 void	set_color_opposites(t_fractol *f, int color);
 void	set_color_contrasted(t_fractol *f, int color);
 void	set_color_graphic(t_fractol *f, int color);
+void	set_color_mono(t_fractol *f, int color);
 int		get_percent_color(int color, double percent);
 
 /*  Events   */

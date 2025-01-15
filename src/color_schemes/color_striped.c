@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:41:59 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 15:26:58 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 22:05:02 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,6 @@ int	get_percent_color(int color, double percent)
 	trgb[1] = rgb[1] * (percent / 100.0);
 	trgb[2] = rgb[2] * (percent / 100.0);
 	return (0xFF << 24 | trgb[0] << 16 | trgb[1] << 8 | trgb[2]);
-}
-
-void	set_color_zebra(t_fractol *f, int color)
-{
-	int	color2;
-
-	color2 = get_percent_color(color, 50);
-	fill_color_stripe(f, color, 1);
-	fill_color_stripe(f, color2, 2);
-	f->palette[MAX_ITERATIONS - 1] = 0;
 }
 
 void	set_color_triad(t_fractol *f, int color)

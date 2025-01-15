@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:24 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 15:03:36 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 21:55:01 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	get_color(t_fractol *f, int ac, char **av)
 	else if (f->set != JULIA && ac == 3)
 		f->color = ft_atox_color(f, av[2]);
 	if (ac == 2 || (f->set == JULIA && ac == 4))
-		f->color = 0x5500FF;
+		f->color = 0x7F00FF;
 }
 
 static int	skip_space_sign(char *str, int *is_neg)

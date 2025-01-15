@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:46 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/13 20:50:00 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/15 22:47:12 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ int	main(int ac, char **av)
 	t_fractol	f;
 
 	if (ac < 2)
+	{
+		clean_init(&f);
 		help_msg(&f);
+	}
 	clean_init(&f);
 	handle_args(&f, ac, av);
 	init(&f);
