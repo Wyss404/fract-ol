@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 21:02:20 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 22:06:48 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/22 22:28:58 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <math.h>
 
 /*  Dimensions	*/
-# define WIDTH 960
-# define HEIGHT 540
-# define MAX_ITERATIONS 250
+# define WIDTH 900
+# define HEIGHT 700
+# define MAX_ITERATIONS 50
 
 /*  Fractal sets	*/
 # define MANDELBROT 1
@@ -43,9 +43,6 @@ typedef struct s_fractol
 	double	max_i;
 	double	kr;
 	double	ki;
-	double	sx;
-	double	rx;
-	double	fx;
 	int		*palette;
 	int		color_pattern;
 	int		color;
@@ -89,5 +86,6 @@ void	clean_exit(int error_code, t_fractol *f);
 int		msg(char *str1, char *str2, int errno);
 void	help_msg(t_fractol *f);
 void	print_controls(void);
+int		ft_atox_color(t_fractol *f, char *color);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:34 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 20:36:45 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/21 21:30:42 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	mandelbrot(double cr, double ci)
 	n = 0;
 	while (n < MAX_ITERATIONS)
 	{
-		if ((zr * zr + zi * zi) > 3.5)
+		if ((zr * zr + zi * zi) > 4)
 			break ;
 		tmp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;

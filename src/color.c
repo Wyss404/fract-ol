@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:03:02 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 21:22:40 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/22 21:49:51 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ void	color_shift(t_fractol *f)
 		set_color_graphic(f, alt_color);
 	else
 		color_shift_2(f);
+}
+
+void	get_color(t_fractol *f, int ac, char **av)
+{
+	if (f->set == JULIA && ac == 5)
+		f->color = ft_atox_color(f, av[4]);
+	else if (f->set != JULIA && ac == 3)
+		f->color = ft_atox_color(f, av[2]);
+	if (ac == 2 || (f->set == JULIA && ac == 4))
+		f->color = 0x7F33DD;
 }

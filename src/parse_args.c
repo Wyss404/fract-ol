@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:24 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 21:55:01 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/21 21:25:54 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	skip_space_sign_0x(char *color)
 	return (i);
 }
 
-static int	ft_atox_color(t_fractol *f, char *color)
+int	ft_atox_color(t_fractol *f, char *color)
 {
 	int	i;
 	int	x;
@@ -51,16 +51,6 @@ static int	ft_atox_color(t_fractol *f, char *color)
 	else
 		help_msg(f);
 	return (-1);
-}
-
-void	get_color(t_fractol *f, int ac, char **av)
-{
-	if (f->set == JULIA && ac == 5)
-		f->color = ft_atox_color(f, av[4]);
-	else if (f->set != JULIA && ac == 3)
-		f->color = ft_atox_color(f, av[2]);
-	if (ac == 2 || (f->set == JULIA && ac == 4))
-		f->color = 0x7F00FF;
 }
 
 static int	skip_space_sign(char *str, int *is_neg)

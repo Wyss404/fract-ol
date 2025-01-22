@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:41:03 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 22:06:02 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/22 00:01:49 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static int	calculate_fractal(t_fractol *f, double pr, double pi)
  *	pixel. Une fois que tous les pixels ont été évalués et ajoutés à l'image
  *	MLX, cette fonction affiche l'image MLX dans la fenêtre.
  */
-
 void	render(t_fractol *f)
 {
 	int		x;

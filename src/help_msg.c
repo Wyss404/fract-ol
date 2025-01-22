@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:39 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 22:41:54 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/22 22:20:53 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	print_fractal_options(void)
 	ft_putendl_fd("|-2.0 and 2.0 and must contain a decimal point.", 1);
 	ft_putendl_fd("\e[32m|Usage example:\t./fractol J", 1);
 	ft_putendl_fd("|\t\t./fractol J 0.285 0.01\e[0m", 1);
+	ft_putstr_fd("\e[31m|(MAX_ITERATION must be greater ", 1);
+	ft_putendl_fd("than or equal to 50)\e[0m", 1);
 	ft_putendl_fd("+==================================================+\n", 1);
 }
 
