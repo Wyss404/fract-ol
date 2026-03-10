@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:03:02 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/22 21:49:51 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/23 23:07:55 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	color_shift_2(t_fractol *f)
 	else if (f->color_pattern == 1)
 		set_color_triad(f, alt_color);
 	else if (f->color_pattern == 2)
-		set_color_tetra(f, alt_color);
+		set_color_mdr(f, alt_color);
 }
 
 void	color_shift(t_fractol *f)

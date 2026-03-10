@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:42:10 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/15 16:31:31 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/23 14:59:55 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	burning_ship(double cr, double ci)
 	zr = 0;
 	zi = 0;
 	n = 0;
-	while (n < MAX_ITERATIONS)
+	while (n < MAX_ITERATIONS - 1)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 			break ;

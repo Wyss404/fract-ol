@@ -6,7 +6,7 @@
 /*   By: hdruel <hdruel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:02:39 by hdruel            #+#    #+#             */
-/*   Updated: 2025/01/22 22:20:53 by hdruel           ###   ########.fr       */
+/*   Updated: 2025/01/23 22:36:31 by hdruel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	print_color_options(void)
 	ft_putendl_fd("|the starting values.", 1);
 	ft_putstr_fd("\e[32m|Usage example:\t", 1);
 	ft_putendl_fd("./fractol J 0.285 0.01 CC6600\e[0m", 1);
-	ft_putendl_fd("+==================================================+", 1);
+	ft_putendl_fd("+==================================================+\n", 1);
 }
 
 void	print_controls(void)
